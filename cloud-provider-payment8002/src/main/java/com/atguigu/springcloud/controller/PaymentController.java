@@ -20,6 +20,7 @@ public class PaymentController {
 
     @Resource
     private DiscoveryClient discoveryClient;
+
     @Value("${server.port}")
     private String serverPort;
 
@@ -58,5 +59,10 @@ public class PaymentController {
             log.info(ele.getServiceId()+"\t"+ele.getHost()+"\t"+ele.getPort()+"\t"+ele.getUri());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping(value = "/payment/lb")
+    public String getServerPort(){
+        return serverPort;
     }
 }
