@@ -21,8 +21,15 @@ spring:
         - id: payment_routh2
           #uri: http://localhost:8001
           uri: lb://cloud-payment-service
+          # predicates就是为了实现一组匹配规则，让请求过来找到对应的route进行处理
           predicates:
             - Path=/payment/lb/**   #断言,路径相匹配的进行路由
+            #- After=2020-07-12T01:09:05.408+08:00[Asia/Shanghai]
+            #- Before=2020-07-12T01:09:05.408+08:00[Asia/Shanghai]
+            #- Between=2020-03-08T10:59:34.102+08:00[Asia/Shanghai] ,  2020-03-08T10:59:34.102+08:00[Asia/Shanghai]
+            #- Cookie=username,ydz  # curl http://localhost:9527/payment/lb --cookie "username=ydz"
+            #- Header=X-Request-Id, \d+
+            #请求头中要有X-Request-Id属性并且值为整数的正则表达式 curl http://localhost:9527/payment/lb -H "X-Request-Id:123"
 
 
 eureka:
