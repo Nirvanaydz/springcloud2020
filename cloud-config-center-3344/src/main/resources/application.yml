@@ -1,0 +1,20 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    # http://config-3344.com:3344/master/config-prod.yml
+    # /{label}/{application}-{profile}.yml 默认推荐解析方式
+    # config/dev/master 从小到大，将所有信息展示
+    config:
+      server:
+        git:
+          uri:  https://github.com/Nirvanaydz/springcloud-config.git #填写你自己的github路径。使用HTTPS协议
+          search-paths: # 搜索的项目repository
+            - springcloud-config
+      label: master  # 读取的分支
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7001/eureka
