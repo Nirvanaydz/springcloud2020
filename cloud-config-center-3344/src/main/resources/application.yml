@@ -14,7 +14,19 @@ spring:
           search-paths: # 搜索的项目repository
             - springcloud-config
       label: master  # 读取的分支
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
 eureka:
   client:
     service-url:
       defaultZone:  http://localhost:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
