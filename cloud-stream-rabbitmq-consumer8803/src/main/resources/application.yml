@@ -1,5 +1,5 @@
 server:
-  port: 8802
+  port: 8803
 
 spring:
   application:
@@ -21,7 +21,7 @@ spring:
           destination: studyExchange # 表示要使用的Exchange名称定义，往exchange里取数据
           content-type: application/json # 设置消息类型，本次为json，文本则设置“text/plain”
           binder: defaultRabbit  # 设置要绑定的消息服务的具体设置
-          group: atguiguA #不同的组可以实现消息的重复消费，同一个组会实现消息消费的竞争，最后同一个组中只有一个消费者消费了生产的信息
+          group: atguiguB #不同的组可以实现消息的重复消费，同一个组会实现消息消费的竞争，最后同一个组中只有一个消费者消费了生产的信息
 
 eureka:
   client: # 客户端进行Eureka注册的配置
@@ -30,5 +30,5 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 2 # 设置心跳的时间间隔（默认是30秒）
     lease-expiration-duration-in-seconds: 5 # 如果现在超过了5秒的间隔（默认是90秒）
-    instance-id: receive-8802.com  # 在信息列表时显示主机名称
+    instance-id: receive-8803.com  # 在信息列表时显示主机名称
     prefer-ip-address: true     # 访问的路径变为IP地址
